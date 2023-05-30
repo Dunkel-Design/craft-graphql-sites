@@ -1,8 +1,17 @@
 {
 	"name": "dunkel/graphqlsites",
-	"version": "1.0.0",
+	"description": "Add a graphql query for sites to craft cms.",
 	"type": "craft-plugin",
 	"license": "MIT",
+	"support": {
+		"source": "https://github.com/Dunkel-Design/craft-graphql-sites"
+	},
+	"authors": [
+		{
+			"name": "Dunkel Design",
+			"homepage": "https://dunkel.cc"
+		}
+	],
 	"require": {
 		"php": ">=8.0.2",
 		"craftcms/cms": "^4.4.8"
