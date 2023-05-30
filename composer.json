@@ -1,0 +1,33 @@
+{
+	"name": "dunkel/graphqlsites",
+	"version": "1.0.0",
+	"type": "craft-plugin",
+	"license": "MIT",
+	"require": {
+		"php": ">=8.0.2",
+		"craftcms/cms": "^4.4.8"
+	},
+	"autoload": {
+		"psr-4": {
+			"dunkel\\graphqlsites\\": "src/"
+		}
+	},
+	"extra": {
+		"handle": "_craft-graphql-sites",
+		"name": "GraphQL Sites",
+		"developer": "Dunkel",
+		"documentationUrl": "",
+		"class": "dunkel\\graphqlsites\\GraphqlSites"
+	},
+	"config": {
+		"sort-packages": true,
+		"platform": {
+			"php": "8.0.2"
+		},
+		"allow-plugins": {
+			"yiisoft/yii2-composer": true,
+			"craftcms/plugin-installer": true
+		}
+	}
+}
+
