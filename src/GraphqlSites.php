@@ -8,11 +8,9 @@ use craft\base\Model;
 use craft\base\Plugin;
 use craft\events\RegisterGqlQueriesEvent;
 use craft\events\RegisterGqlSchemaComponentsEvent;
-use craft\events\RegisterGqlTypesEvent;
 use craft\services\Gql;
 use dunkel\graphqlsites\models\Settings;
 use dunkel\graphqlsites\gql\queries\SitesQuery;
-use dunkel\graphqlsites\gql\interfaces\SitesInterface;
 
 
 /**
@@ -47,14 +45,6 @@ class GraphqlSites extends Plugin
 			Gql::EVENT_REGISTER_GQL_SCHEMA_COMPONENTS,
 			static function (RegisterGqlSchemaComponentsEvent $event) {
 				$event->queries['GraphQL Sites']['graphqlsites.all:read'] = ['label' => 'Allow to list sites'];
-			}
-		);
-
-		Event::on(
-			Gql::class,
-			Gql::EVENT_REGISTER_GQL_TYPES,
-			function(RegisterGqlTypesEvent $event) {
-				$event->types[] = SitesInterface::class;
 			}
 		);
 	}
