@@ -7,8 +7,10 @@ use yii\base\Event;
 use craft\base\Model;
 use craft\base\Plugin;
 use craft\events\RegisterGqlQueriesEvent;
+use craft\events\RegisterGqlTypesEvent;
 use craft\events\RegisterGqlSchemaComponentsEvent;
 use craft\services\Gql;
+use craft\gql\GqlEntityRegistry;
 use dunkel\graphqlsites\models\Settings;
 use dunkel\graphqlsites\gql\queries\SitesQuery;
 
@@ -28,6 +30,18 @@ class GraphqlSites extends Plugin
 
 		$gqlService = Craft::$app->getGql();
 		$gqlService->flushCaches();
+
+		// Handler: Gql::EVENT_REGISTER_GQL_TYPES
+		Event::on(
+			Gql::class,
+			Gql::EVENT_REGISTER_GQL_TYPES,
+			static function (RegisterGqlTypesEvent $event) {
+				GqlEntityRegistry::createEntity(
+					'CSite',
+					SitesQuery::getSiteType()
+				);
+			}
+		);
 
 		Event::on(
 			Gql::class,
