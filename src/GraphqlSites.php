@@ -28,9 +28,6 @@ class GraphqlSites extends Plugin
 	public function init() {
 		parent::init();
 
-		$gqlService = Craft::$app->getGql();
-		$gqlService->flushCaches();
-
 		// Handler: Gql::EVENT_REGISTER_GQL_TYPES
 		Event::on(
 			Gql::class,
