@@ -8,4 +8,6 @@ use craft\base\Model;
 /**
  * craft-graphql-sites settings
  */
-class Settings extends Model {}
+class Settings extends Model
+{
+}

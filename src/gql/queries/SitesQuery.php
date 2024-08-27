@@ -10,31 +10,34 @@ use craft\gql\GqlEntityRegistry;
 
 use craft\gql\base\Query;
 
-class SitesQuery extends Query {
-	public static function getQueries(bool $checkToken = true): array {
+class SitesQuery extends Query
+{
+	public static function getQueries(bool $checkToken = true): array
+	{
 		if ($checkToken && !GqlHelper::canQuerySites()) {
 			return [];
 		}
 
 		return [
 			// c for custom
-			'csites' => [
-				'type' => Type::listOf(GqlEntityRegistry::getEntity('CSite')),
-				'args' => [],
-				'resolve' => SitesResolver::class . '::resolve',
-				'description' => 'This query is used to query for sites data.'
+			"csites" => [
+				"type" => Type::listOf(GqlEntityRegistry::getEntity("CSite")),
+				"args" => [],
+				"resolve" => SitesResolver::class . "::resolve",
+				"description" => "This query is used to query for sites data.",
 			],
 		];
 	}
 
-	static function getSiteType() {
+	static function getSiteType()
+	{
 		return new ObjectType([
-			'name' => 'CSite',
-			'fields' => [
-				'id' => Type::int(),
-				'baseUrl' => Type::string(),
-				'language' => Type::string()
-			]
+			"name" => "CSite",
+			"fields" => [
+				"id" => Type::int(),
+				"baseUrl" => Type::string(),
+				"language" => Type::string(),
+			],
 		]);
 	}
 }
