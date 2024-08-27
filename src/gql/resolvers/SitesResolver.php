@@ -22,6 +22,16 @@ class SitesResolver extends Resolver
 				"id" => $site->id,
 				"baseUrl" => $site->baseUrl,
 				"language" => $site->language,
+				"name" => $site->name,
+				"handle" => $site->handle,
+				"enabled" => $site->enabled,
+				"hasUrls" => $site->hasUrls,
+				"primary" => $site->primary,
+				"sortOrder" => $site->sortOrder,
+				"group" => [
+					"id" => $site->group->id,
+					"name" => $site->group->name,
+				],
 			];
 		}
 

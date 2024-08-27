@@ -29,6 +29,17 @@ class SitesQuery extends Query
 		];
 	}
 
+	static function getSiteGroupType()
+	{
+		return new ObjectType([
+			"name" => "CSiteGroup",
+			"fields" => [
+				"id" => Type::int(),
+				"name" => Type::string(),
+			],
+		]);
+	}
+
 	static function getSiteType()
 	{
 		return new ObjectType([
@@ -37,6 +48,13 @@ class SitesQuery extends Query
 				"id" => Type::int(),
 				"baseUrl" => Type::string(),
 				"language" => Type::string(),
+				"name" => Type::string(),
+				"handle" => Type::nonNull(Type::string()),
+				"enabled" => Type::boolean(),
+				"hasUrls" => Type::boolean(),
+				"primary" => Type::boolean(),
+				"sortOrder" => Type::int(),
+				"group" => GqlEntityRegistry::getEntity("CSiteGroup"),
 			],
 		]);
 	}

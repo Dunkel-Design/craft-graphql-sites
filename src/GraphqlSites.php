@@ -32,6 +32,10 @@ class GraphqlSites extends Plugin
 		Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_TYPES, static function (
 			RegisterGqlTypesEvent $event
 		) {
+			GqlEntityRegistry::createEntity(
+				"CSiteGroup",
+				SitesQuery::getSiteGroupType()
+			);
 			GqlEntityRegistry::createEntity("CSite", SitesQuery::getSiteType());
 		});
 
